@@ -11,22 +11,22 @@ import {
   Checkbox,
 } from '@chakra-ui/react'
 
-const todoList = [
-  {
-    isDone: false,
-    task: '牛乳を買う',
-  },
-  {
-    isDone: false,
-    task: '乳牛を買う',
-  },
-  {
-    isDone: false,
-    task: '牛牛を買う',
-  },
-]
-
 const Home: FC = () => {
+  const todoList = [
+    {
+      isDone: true,
+      task: '牛乳を買う',
+    },
+    {
+      isDone: false,
+      task: '乳牛を買う',
+    },
+    {
+      isDone: true,
+      task: '牛牛を買う',
+    },
+  ]
+
   return (
     <Layout>
       <Container maxW="container.md">
@@ -41,7 +41,7 @@ const Home: FC = () => {
           {todoList.map((todo, i) => {
             return (
               <Box key={i}>
-                <Checkbox defaultIsChecked>{todo.task}</Checkbox>
+                <Checkbox isChecked={todo.isDone}>{todo.task}</Checkbox>
               </Box>
             )
           })}
