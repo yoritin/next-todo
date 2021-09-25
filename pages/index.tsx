@@ -1,6 +1,30 @@
 import { FC } from 'react'
 import Layout from '@/components/Layout'
-import { Container, Center, Flex, Input, Box, Text } from '@chakra-ui/react'
+import {
+  Container,
+  Center,
+  Flex,
+  Input,
+  Box,
+  Button,
+  Text,
+  Checkbox,
+} from '@chakra-ui/react'
+
+const todoList = [
+  {
+    isDone: false,
+    task: '牛乳を買う',
+  },
+  {
+    isDone: false,
+    task: '乳牛を買う',
+  },
+  {
+    isDone: false,
+    task: '牛牛を買う',
+  },
+]
 
 const Home: FC = () => {
   return (
@@ -11,10 +35,17 @@ const Home: FC = () => {
         </Center>
         <Flex>
           <Input placeholder="Todo" mr={2} />
-          <Box as="button" borderRadius="md" bg="teal.400" color="white" px={4}>
-            Add
-          </Box>
+          <Button colorScheme="teal">Add</Button>
         </Flex>
+        <Box pt="4">
+          {todoList.map((todo, i) => {
+            return (
+              <Box key={i}>
+                <Checkbox defaultIsChecked>{todo.task}</Checkbox>
+              </Box>
+            )
+          })}
+        </Box>
       </Container>
     </Layout>
   )
