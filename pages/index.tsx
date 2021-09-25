@@ -1,11 +1,12 @@
 import { FC } from 'react'
+import Layout from '@/components/Layout'
 
 const Home: FC = () => {
   return (
-    <div>
+    <Layout>
       <header>Todo App</header>
       <div>Todo List</div>
-    </div>
+    </Layout>
   )
 }
 
